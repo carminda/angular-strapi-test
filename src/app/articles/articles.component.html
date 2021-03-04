@@ -1,0 +1,32 @@
+<div class="uk-section">
+  <div class="uk-container uk-container-large">
+    <h2>Strapi Contents</h2>
+
+    <div class="uk-child-width-1-2" uk-grid>
+      <div>
+        <a
+          routerLink="/article/{{ content.id }}"
+          routerLinkActive="active"
+          *ngFor="let content of data"
+          class="uk-link-reset"
+        >
+          <div class="uk-card uk-card-muted">
+            <div class="uk-card-body">
+              <p id="category" class="uk-text-uppercase">
+                {{ content.Description }}
+              </p>
+              <p id="title" class="uk-text-large">{{ content.id }}</p>
+            </div>
+            <div class="uk-card-media-top">
+              <img
+                src="https://arcane-refuge-22816.herokuapp.com{{ content.CoverImage[0].url }}"
+                alt=""
+                height="500"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
