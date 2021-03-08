@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, SecurityContext } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,7 +19,10 @@ import { ArticleComponent } from './article/article.component';
     ArticleComponent,
   ],
   imports: [
-    MarkdownModule.forRoot(),
+    MarkdownModule.forRoot({
+      // Disable rich text mardown sanitization
+      sanitize: SecurityContext.NONE,
+    }),
     BrowserModule,
     AppRoutingModule,
     GraphQLModule,

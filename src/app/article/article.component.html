@@ -2,56 +2,28 @@
   <div class="uk-container uk-container-large">
     <div class="uk-child-width-1-2" uk-grid>
       <div>
-        <div class="uk-card uk-card-muted">
-          <div class="uk-card-body">
-            <p id="category" class="uk-text-uppercase">
-              {{ data.Description }}
-            </p>
-            <p id="title" class="uk-text-large">{{ data.id }}</p>
-          </div>
-          <div *ngIf="data.CoverImage !== undefined">
-            <div class="uk-card-media-top">
+        <a
+          routerLink="/article/{{ data.id }}"
+          routerLinkActive="active"
+          class="uk-link-reset"
+        >
+          <div class="uk-card uk-card-muted">
+            <div class="uk-card-body">
+              <p id="title" class="uk-text-large">{{ data.id }}</p>
+              <p id="category" class="uk-text-uppercase">
+                <markdown [data]="data.Description"></markdown>
+              </p>
               <img
-                src="https://arcane-refuge-22816.herokuapp.com{{
+                src="https://test-strapi-app-ca.herokuapp.com{{
                   data.CoverImage[0].url
                 }}"
                 alt=""
-                height="1000"
+                height="500"
               />
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
-  </div>
-</div>
-
-<div
-  id="banner"
-  class="uk-height-small uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding"
-  uk-img
->
-  <div *ngIf="data.CoverImage !== undefined">
-    <h1>{{ data.CoverImage[0].url }}</h1>
-  </div>
-</div>
-
-<div class="uk-section">
-  <div class="uk-container uk-container-small">
-    <p>
-      {{ data.Description }}
-    </p>
-    <div *ngIf="data.CoverImage !== undefined">
-      <div class="uk-card-media-top">
-        <img
-          src="https://arcane-refuge-22816.herokuapp.com{{
-            data.CoverImage[0].url
-          }}"
-          alt=""
-          height="500"
-        />
-      </div>
-    </div>
-    <p></p>
   </div>
 </div>

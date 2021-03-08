@@ -12,14 +12,14 @@
         >
           <div class="uk-card uk-card-muted">
             <div class="uk-card-body">
-              <p id="category" class="uk-text-uppercase">
-                {{ content.Description }}
-              </p>
               <p id="title" class="uk-text-large">{{ content.id }}</p>
-            </div>
-            <div class="uk-card-media-top">
+              <p id="category" class="uk-text-uppercase">
+                <markdown [data]="content.Description"></markdown>
+              </p>
               <img
-                src="https://arcane-refuge-22816.herokuapp.com{{ content.CoverImage[0].url }}"
+                src="https://test-strapi-app-ca.herokuapp.com{{
+                  content.CoverImage[0].url
+                }}"
                 alt=""
                 height="500"
               />
